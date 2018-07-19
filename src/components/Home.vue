@@ -1,11 +1,14 @@
 <template>
   <div class="home">
     <Header></Header>
+    <Games></Games>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
+import Games from '@/components/Games'
+
 export default {
   name: 'Home',
 
@@ -16,6 +19,7 @@ export default {
 
   components: {
     Header,
+    Games
   }
 }
 </script>
