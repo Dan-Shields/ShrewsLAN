@@ -10,13 +10,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  background-color: #02111b;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
 }
 </style>
