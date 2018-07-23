@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <h1 class="title"><span style="font-weight: 200">S<span style="font-size: 80px">HREWS</span></span>LAN</h1>
-    <Countdown date="September 1, 2018 10:00"></Countdown>
+    <Countdown :date="date"></Countdown>
   </div>
 </template>
 
@@ -10,6 +10,10 @@ import Countdown from '@/components/Countdown'
 
 export default {
   name: 'Header',
+
+  props: [
+    'date'
+  ],
 
   data () {
     return {

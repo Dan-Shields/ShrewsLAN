@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Header></Header>
-    <Games></Games>
+    <Header :date="startDate"></Header>
+    <Games :games="games"></Games>
   </div>
 </template>
 
@@ -14,6 +14,12 @@ export default {
 
   data () {
     return {
+      startDate: 'September 1, 2018 10:00',
+      games: [
+        {id: 'tf2', name: 'Team Fortress 2'},
+        {id: 'csgo', name: 'CS:GO'},
+        {id: 'minecraft', name: 'Minecraft'}
+      ]
     }
   },
 

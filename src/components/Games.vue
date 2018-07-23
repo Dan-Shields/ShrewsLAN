@@ -1,21 +1,28 @@
 <template>
   <div class="games">
     <div class="game-list">
-        <div class="game">CS:GO</div>
-        <div class="game">Team Fortress 2</div>
-        <div class="game">Overwatch</div>
-        <div class="game">Minecraft</div>
+      <Game v-for="game in games" :key="game.id" :game="game"></Game>
     </div>
   </div>
 </template>
 
 <script>
+import Game from '@/components/Game'
+
 export default {
   name: 'Games',
+
+  props: [
+    'games'
+  ],
 
   data () {
     return {
     }
+  },
+
+  components: {
+    Game
   }
 
 }
@@ -24,11 +31,13 @@ export default {
 <style lang="scss" scoped>
 .game-list {
     display: flex;
+    flex-wrap: wrap;
     width: 60%;
     margin: auto;
 }
 
 .game {
-    width: 80%;
+    height: 250px;
+    width: 250px;
 }
 </style>
