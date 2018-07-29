@@ -95,7 +95,8 @@ module.exports = {
     new GoogleFontsPlugin({
 			fonts: [
 				{ family: "Montserrat", variants: [ "200", "400", "700", "800" ] }
-			]
+      ],
+      local: false
 		})
   ]
 }
