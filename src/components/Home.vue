@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <Header :date="startDate"></Header>
-    <Games :games="games"></Games>
+    <div class="content">
+      <Games :games="games"></Games>
+    </div>
   </div>
 </template>
 
@@ -16,9 +18,11 @@ export default {
     return {
       startDate: 'September 1, 2018 10:00',
       games: [
-        {id: 'tf2', name: 'Team Fortress 2'},
         {id: 'csgo', name: 'CS:GO'},
-        {id: 'minecraft', name: 'Minecraft'}
+        {id: 'tf2', name: 'TF2'},
+        {id: 'gmod', name: 'Garry\'s Mod'},
+        {id: 'mc', name: 'Minecraft'},
+        {id: 'aos', name: 'Ace of Spades'}
       ]
     }
   },
@@ -34,5 +38,32 @@ export default {
 .home {
   width: 1200px;
   margin: 0px auto;
+}
+
+.content {
+  width: 1000px;
+  margin: auto;
+}
+
+@media (max-width: 1377px) {
+  .home {
+    width: 1100px;
+  }
+  .content {
+    width: 800px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home {
+    width: 1000px;
+    width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home, .content {
+    width: 100%;
+  }
 }
 </style>

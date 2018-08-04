@@ -1,8 +1,6 @@
 <template>
   <div class="games">
-    <div class="game-list">
-      <Game v-for="game in games" :key="game.id" :game="game"></Game>
-    </div>
+    <Game v-for="game in games" :key="game.id" :game="game"></Game>
   </div>
 </template>
 
@@ -29,15 +27,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.game-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 60%;
-    margin: auto;
-}
-
-.game {
-    height: 250px;
-    width: 250px;
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
 }
 </style>
