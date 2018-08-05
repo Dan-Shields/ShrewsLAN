@@ -1,5 +1,5 @@
 <template>
-  <div class="games">
+  <div class="games" :class="{ comp: type=='comp' }">
     <Game v-for="game in games" :key="game.id" :game="game"></Game>
   </div>
 </template>
@@ -11,7 +11,8 @@ export default {
   name: 'Games',
 
   props: [
-    'games'
+    'games',
+    'type'
   ],
 
   data () {
@@ -33,5 +34,14 @@ export default {
   justify-content: center;
   width: 100%;
   margin: auto;
+  box-sizing: border-box;
+  padding: 15px 0;
+}
+
+.comp {
+  border-width: 5px;
+  border-color: rgba(0, 206, 203, 0.8);
+  border-style: solid;
+  border-radius: 5px;
 }
 </style>

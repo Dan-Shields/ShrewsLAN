@@ -2,7 +2,8 @@
   <div class="home">
     <Header :date="startDate"></Header>
     <div class="content">
-      <Games :games="games"></Games>
+      <Games :type="'comp'" :games="comp_games"></Games>
+      <Games :type="'casual'" :games="casual_games"></Games>
     </div>
   </div>
 </template>
@@ -17,13 +18,19 @@ export default {
   data () {
     return {
       startDate: 'September 1, 2018 10:00',
-      games: [
+      comp_games: [
         {id: 'csgo', name: 'CS:GO'},
         {id: 'tf2', name: 'TF2'},
-        {id: 'gmod', name: 'Garry\'s Mod'},
-        {id: 'mc', name: 'Minecraft'},
         {id: 'aos', name: 'Ace of Spades'}
-      ]
+      ],
+      casual_games: [
+        {id: 'gmod', name: 'Garry\'s Mod'},
+        {id: 'r6s', name: 'Rainbow Six: Siege'},
+        {id: 'mc', name: 'Minecraft'},
+        {id: 'fn', name: 'Fortnite'},
+        {id: 'rl', name: 'Rocket League'}
+      ],
+      showModal: false
     }
   },
 
@@ -37,33 +44,14 @@ export default {
 <style lang="scss" scoped>
 .home {
   width: 1200px;
+  max-width: 100%;
   margin: 0px auto;
 }
 
 .content {
   width: 1000px;
+  max-width: 100%;
   margin: auto;
 }
 
-@media (max-width: 1377px) {
-  .home {
-    width: 1100px;
-  }
-  .content {
-    width: 800px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .home {
-    width: 1000px;
-    width: 800px;
-  }
-}
-
-@media (max-width: 768px) {
-  .home, .content {
-    width: 100%;
-  }
-}
 </style>

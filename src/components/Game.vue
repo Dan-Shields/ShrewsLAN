@@ -28,9 +28,7 @@ $width: 250px;
   position: relative;
   height: $height;
   width: $width;
-  //flex-basis: 300px;
   padding: 0 10px;
-  //margin-bottom: 40px;
 
   .img {
     position: absolute;
