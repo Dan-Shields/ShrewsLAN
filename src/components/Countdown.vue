@@ -86,6 +86,7 @@ export default {
 .digit {
   color: #ecf0f1;
   font-size: 75px;
+  width: 120px;
   font-weight: 100;
   margin: 10px;
   text-align: center;
