@@ -10,11 +10,14 @@
 
     <p class="subtitle">September 1<sup>st</sup>-2<sup>nd</sup> 2018 <span style="font-weight: 800; margin: auto 10px;">&#8226; </span>Mount Pleasant Primary School, Shrewsbury</p>
     <Countdown :date="date"></Countdown>
+
+    <Signup/>
   </div>
 </template>
 
 <script>
 import Countdown from '@/components/Countdown'
+import Signup from '@/components/Signup'
 
 export default {
   name: 'Header',
@@ -29,7 +32,8 @@ export default {
   },
 
   components: {
-    Countdown
+    Countdown,
+    Signup
   }
 }
 </script>
