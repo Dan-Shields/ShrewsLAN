@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 $height: 200px;
 $width: 250px;
 
@@ -36,7 +38,8 @@ $width: 250px;
     left: 50%;
     object-fit: cover;
     transform: translate(-50%, -50%);
-    width: 0;
+    clip-path: inset(0 50% 0 50%);
+    width: 250px;
     height: $height;
     filter: grayscale(100%);
     filter: brightness(50%);
@@ -53,12 +56,12 @@ $width: 250px;
     transition: .8s;
 
     &:hover {
-      width: 50%;
+      transform: translate(-50%,-50%) scale(1.3);
 
       &~.img {
         filter: grayscale(0%);
         filter: brightness(100%);
-        width: $width;
+        clip-path: inset(0);
       }
     }
   }

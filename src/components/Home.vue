@@ -42,6 +42,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 .home {
   width: 1200px;
   max-width: 100%;

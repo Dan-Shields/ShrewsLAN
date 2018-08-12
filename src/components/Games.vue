@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 .games {
   display: flex;
   flex-wrap: wrap;
@@ -40,7 +42,7 @@ export default {
 
 .comp {
   border-width: 5px;
-  border-color: rgba(0, 206, 203, 0.8);
+  border-color: $primary;
   border-style: solid;
   border-radius: 5px;
 }

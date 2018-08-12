@@ -62,6 +62,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 .countdown {
   display: flex;
   margin: auto;
@@ -75,16 +77,16 @@ export default {
 }
 
 .text {
-  color: #00cecb;
+  color: $primary;
   font-size: 25px;
-  font-weight: 40;
+  font-weight: 200;
   margin-top:10px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .digit {
-  color: #ecf0f1;
+  color: white;
   font-size: 75px;
   width: 120px;
   font-weight: 100;

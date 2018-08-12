@@ -5,7 +5,7 @@
         <img src="@/assets/logo.png"/>
       </div>
 
-      <h1 class="title"><span style="font-weight: 200">S<span style="font-size: 80px">HREWS</span></span>LAN</h1>
+      <h1 class="title"><span style="font-weight: 200">S<span style="font-size: 80px">HREWS</span></span>LAN <span style="font-weight: 500;">11</span></h1>
     </div>
 
     <p class="subtitle">September 1<sup>st</sup>-2<sup>nd</sup> 2018 <span style="font-weight: 800; margin: auto 10px;">&#8226; </span>Mount Pleasant Primary School, Shrewsbury</p>
@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 .header {
   margin-bottom: 50px;
 }

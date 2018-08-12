@@ -28,14 +28,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 $width: 150px;
 $height: 70px;
 
 .button {
-  border-color: rgba(0, 206, 203, 0.9);
+  border-color: $primary;
   border-radius: 5px;
   border-width: 5px;
   border-style: solid;
+
+  
+  background-color: rgba(0,0,0,0);
 
   margin: auto;
 
@@ -54,7 +59,9 @@ $height: 70px;
   transition: 0.2s;
 
   &:hover {
+    color: black;
     width: $width + 15px;
+    background-color: $primary;    
   }
 }
 </style>
