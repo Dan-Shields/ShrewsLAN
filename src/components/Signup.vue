@@ -39,7 +39,6 @@ $height: 70px;
   border-width: 5px;
   border-style: solid;
 
-  
   background-color: rgba(0,0,0,0);
 
   margin: auto;
@@ -61,7 +60,7 @@ $height: 70px;
   &:hover {
     color: black;
     width: $width + 15px;
-    background-color: $primary;    
+    background-color: $primary;
   }
 }
 </style>

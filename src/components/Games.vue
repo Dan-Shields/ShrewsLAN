@@ -44,6 +44,6 @@ export default {
   border-width: 5px;
   border-color: $primary;
   border-style: solid;
-  border-radius: 5px;
+  border-radius: 1000px;
 }
 </style>
