@@ -5,7 +5,7 @@
     </div>
 
     <!-- use the modal component, pass in the prop -->
-    <SignupModal v-if="showModal" @close="showModal = false"/>
+    <SignupModal v-if="showModal" @close="showModal = false" @submit="showModal = false"/>
   </div>
 </template>
 
