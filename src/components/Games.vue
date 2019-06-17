@@ -42,7 +42,7 @@ export default {
 
 .comp {
   border-width: 5px;
-  border-color: $primary;
+  border-color: $secondary;
   border-style: solid;
   border-radius: 1000px;
 }
