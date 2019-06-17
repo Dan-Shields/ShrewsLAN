@@ -5,7 +5,7 @@
         <img src="@/assets/logo.png"/>
       </div>
 
-      <h1 class="title"><span style="font-weight: 200">S<span class="hrews" style="font-size: 80px;padding: 0px 0px 0px 0px" >HREWS</span></span>LAN <span style="font-weight: 500;">12</span></h1>
+      <h1 class="title"><span style="font-weight: 200">S<span style="font-size: 80px" >HREWS</span></span>LAN <span style="font-weight: 500;">12</span></h1>
     </div>
 
     <p class="subtitle">July 20<sup>th</sup> - 21<sup>st</sup> 2019 <span style="font-weight: 800; margin: auto 10px;">&#8226; </span>Mount Pleasant Primary School, Shrewsbury</p>
@@ -60,19 +60,13 @@ export default {
       transform: translateY(10%);
     }
   }
-
+}
   .title {
     font-size: 100px;
     margin: 0;
     padding-top: 50px;
     width: auto;
   }
-
-  .hrews {
-    position: relative;
-    top: -6.9px;
-  }
-}
 
 .subtitle {
   font-weight: 200;
