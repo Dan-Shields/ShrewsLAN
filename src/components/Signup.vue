@@ -7,7 +7,7 @@
     <transition name="modal" :leave-to-class="leaveTo" @after-leave="reset()">
       <div v-if="showModal" class="modal-mask">
         <div class="modal-wrapper">
-          <div class="modal-container">
+          <div class="modal-container" :class="{success: success}">
             <transition name="generic" @after-leave="success = true">
               <div class="form" v-if="formOpen">
                 <transition name="generic">
@@ -54,7 +54,7 @@
                       d="M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"
                         />
 
-                      <polyline class="tick path" style="fill:none;stroke:#39F06A;stroke-width:2;stroke-miterlimit:10;"
+                      <polyline class="tick path" style="fill:none;stroke:#39F06A;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;"
                       points="11.6,20 15.9,24.2 26.4,13.8 "/>
                         
                     </svg>
@@ -199,6 +199,15 @@ export default {
   color: #fff;
   text-align: left;
 
+  display: flex;
+  align-items: center;
+
+  height: 532px;
+
+  &.success {
+    height: 383px;
+  }
+
   .show-success {
     text-align: center;
   }
@@ -315,11 +324,11 @@ export default {
 .tick{
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -o-transition: stroke-dashoffset 1s 0.5s ease-out;
-  transition: stroke-dashoffset 1s 0.5s ease-out;
+  -webkit-transition: stroke-dashoffset 1s 0.2s ease-out;
+  -moz-transition: stroke-dashoffset 1s 0.2s ease-out;
+  -ms-transition: stroke-dashoffset 1s 0.2s ease-out;
+  -o-transition: stroke-dashoffset 1s 0.2s ease-out;
+  transition: stroke-dashoffset 1s 0.2s ease-out;
 }
 
 .draw svg .path {
