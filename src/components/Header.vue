@@ -2,7 +2,7 @@
   <div class="header">
     <div class="banner">
       <div class="logo">
-        <img src="@/assets/logo.png"/>
+        <img src="@/assets/logo.png">
       </div>
 
       <h1 class="title"><span style="font-weight: 200">S<span style="font-size: 80px" >HREWS</span></span>LAN <span style="font-weight: 500;">12</span></h1>
@@ -10,17 +10,17 @@
 
     <p class="subtitle">July 20<sup>th</sup> - 21<sup>st</sup> 2019 <span style="font-weight: 800; margin: auto 10px;">&#8226; </span>Mount Pleasant Primary School, Shrewsbury</p>
 
-    <hr class="hr"/>
+    <hr class="hr">
 
     <Countdown :date="date"></Countdown>
 
-    <Signup/>
+    <Signup></Signup>
   </div>
 </template>
 
 <script>
-import Countdown from '@/components/Countdown'
-import Signup from '@/components/Signup'
+import Countdown from '@/components/Countdown';
+import Signup from '@/components/Signup';
 
 export default {
   name: 'Header',
@@ -31,14 +31,14 @@ export default {
 
   data () {
     return {
-    }
+    };
   },
 
   components: {
     Countdown,
     Signup
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

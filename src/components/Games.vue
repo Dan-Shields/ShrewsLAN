@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Game from '@/components/Game'
+import Game from '@/components/Game';
 
 export default {
   name: 'Games',
@@ -17,14 +17,14 @@ export default {
 
   data () {
     return {
-    }
+    };
   },
 
   components: {
     Game
   }
 
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator';
 // @ts-ignore
-import Header from '@/components/Header'
+import Header from '@/components/Header';
 // @ts-ignore
-import Games from '@/components/Games'
+import Games from '@/components/Games';
 
 @Component({
   name: 'Home',
@@ -35,7 +35,7 @@ import Games from '@/components/Games'
         { id: 'rl', name: 'Rocket League' }
       ],
       showModal: false
-    }
+    };
   },
 
   components: {

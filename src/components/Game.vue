@@ -1,7 +1,7 @@
 <template>
   <div class="game">
-    <img class="logo" :src="require('@/assets/img/' + game.id + '_logo.png')"/>
-    <img class="img" :src="require('@/assets/img/' + game.id + '.jpg')"/>
+    <img class="logo" :src="require('@/assets/img/' + game.id + '_logo.png')">
+    <img class="img" :src="require('@/assets/img/' + game.id + '.jpg')">
   </div>
 </template>
 
@@ -15,9 +15,9 @@ export default {
 
   data () {
     return {
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
