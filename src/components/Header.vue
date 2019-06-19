@@ -9,6 +9,9 @@
     </div>
 
     <p class="subtitle">July 20<sup>th</sup> - 21<sup>st</sup> 2019 <span style="font-weight: 800; margin: auto 10px;">&#8226; </span>Mount Pleasant Primary School, Shrewsbury</p>
+
+    <hr class="hr"/>
+
     <Countdown :date="date"></Countdown>
 
     <Signup/>
@@ -61,17 +64,24 @@ export default {
     }
   }
 }
-  .title {
-    font-size: 100px;
-    margin: 0;
-    padding-top: 50px;
-    width: auto;
-  }
+.title {
+  font-size: 100px;
+  margin: 0;
+  padding-top: 50px;
+  width: auto;
+}
 
 .subtitle {
   font-weight: 200;
   font-size: 20px;
-  clear: both;
+  margin-top: 0;
+}
+
+.hr {
+  border-color: $secondary;
+  border-width: 1px;
+  margin-top: -15px;
+  width: 660px;
 }
 
 .countdown {
