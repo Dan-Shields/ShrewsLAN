@@ -51,15 +51,12 @@ export default class Home extends Vue {}
 @import '../assets/scss/global.scss';
 
 .home {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0px auto;
-}
-
-.content {
-  width: 1000px;
-  max-width: 100%;
+  max-width: 1000px;
   margin: auto;
 }
 
+.cta {
+  text-align: center;
+  font-size: 42px;
+}
 </style>

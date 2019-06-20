@@ -185,7 +185,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, .9);
   display: table;
   color: black;
@@ -323,20 +323,12 @@ export default {
   opacity: 0;
   stroke-dasharray: 130;
   stroke-dashoffset: 130;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
   transition: all 1s;
 }
 
 .tick{
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  -webkit-transition: stroke-dashoffset 1s 0.2s ease-out;
-  -moz-transition: stroke-dashoffset 1s 0.2s ease-out;
-  -ms-transition: stroke-dashoffset 1s 0.2s ease-out;
-  -o-transition: stroke-dashoffset 1s 0.2s ease-out;
   transition: stroke-dashoffset 1s 0.2s ease-out;
 }
 
@@ -351,7 +343,6 @@ export default {
   opacity: 0;
 
   .modal-container {
-    -webkit-transform: scale(.9);
     transform: scale(.9);
   }
 }
@@ -360,7 +351,6 @@ export default {
   opacity: 0;
 
   .modal-container {
-    -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
 }
@@ -373,7 +363,6 @@ export default {
   opacity: 1;
 
   .modal-container {
-    -webkit-transform: scale(1);
     transform: scale(1);
   }
 }
