@@ -2,8 +2,16 @@
   <div class="home">
     <Header :date="startDate"></Header>
 
-      <Games :type="'comp'" :games="comp_games"></Games>
-      <Games :type="'casual'" :games="casual_games"></Games>
+    <Games :type="'comp'" :games="comp_games"></Games>
+    <Games :type="'casual'" :games="casual_games"></Games>
+
+    <Info></Info>
+
+    <h1 class="cta">Reserve your spot now!</h1>
+    <Signup></Signup>
+
+    <div class="footer">
+
     </div>
   </div>
 </template>
@@ -14,6 +22,10 @@ import { Component, Vue } from 'vue-property-decorator';
 import Header from '@/components/Header';
 // @ts-ignore
 import Games from '@/components/Games';
+// @ts-ignore
+import Info from '@/components/Info';
+// @ts-ignore
+import Signup from '@/components/Signup';
 
 @Component({
   name: 'Home',
@@ -29,17 +41,16 @@ import Games from '@/components/Games';
       casual_games: [
         { id: 'gmod', name: 'Garry\'s Mod' },
         { id: 'r6s', name: 'Rainbow Six: Siege' },
-        { id: 'mc', name: 'Minecraft' },
-        { id: 'fn', name: 'Fortnite' },
-        { id: 'rl', name: 'Rocket League' }
-      ],
-      showModal: false
+        { id: 'mc', name: 'Minecraft' }
+      ]
     };
   },
 
   components: {
     Header,
-    Games
+    Games,
+    Info,
+    Signup
   }
 })
 
