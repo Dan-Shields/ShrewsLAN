@@ -30,7 +30,7 @@ $width: 250px;
   position: relative;
   height: $height;
   width: $width;
-  padding: 0 10px;
+  padding: 15px 10px;
 
   .img {
     position: absolute;
@@ -44,6 +44,7 @@ $width: 250px;
     filter: grayscale(100%);
     filter: brightness(50%);
     transition: .5s;
+    border-radius: 10px;
   }
 
   .logo {
@@ -66,5 +67,19 @@ $width: 250px;
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    transform: translate(-50%,-50%) scale(1.3);
+
+      &~.img {
+        filter: grayscale(0%);
+        filter: brightness(100%);
+        clip-path: inset(0);
+      }
+  }
+} 
+
+
 
 </style>
