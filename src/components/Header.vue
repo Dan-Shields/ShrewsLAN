@@ -25,14 +25,11 @@
     <hr class="underline">
 
     <Countdown :date="date"></Countdown>
-
-    <Signup></Signup>
   </div>
 </template>
 
 <script>
 import Countdown from '@/components/Countdown';
-import Signup from '@/components/Signup';
 
 export default {
   name: 'Header',
@@ -47,8 +44,7 @@ export default {
   },
 
   components: {
-    Countdown,
-    Signup
+    Countdown
   }
 };
 </script>
@@ -57,7 +53,6 @@ export default {
 @import '../assets/scss/global.scss';
 
 .header {
-  margin-bottom: 50px;
   max-width: 100%;
 }
 

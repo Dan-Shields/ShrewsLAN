@@ -2,6 +2,9 @@
   <div class="home">
     <Header :date="startDate"></Header>
 
+    <h2 class="seats-left">Seats left: 25/40</h2>
+    <Signup></Signup>
+
     <Games :type="'comp'" :games="comp_games"></Games>
     <Games :type="'casual'" :games="casual_games"></Games>
 
@@ -64,6 +67,10 @@ export default class Home extends Vue {}
 .home {
   max-width: 1000px;
   margin: auto;
+}
+
+.seats-left {
+  margin-top: -25px;
 }
 
 .cta {

@@ -145,7 +145,11 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/global.scss';
 
-.button {
+.signup {
+  margin-bottom: 50px;
+}
+
+.button {  
   $width: 150px;
   $height: 70px;
 
