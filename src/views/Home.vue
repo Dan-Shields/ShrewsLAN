@@ -1,8 +1,7 @@
-/* eslint-disable object-curly-spacing */
 <template>
   <div class="home">
     <Header :date="startDate"></Header>
-    <div class="content">
+
       <Games :type="'comp'" :games="comp_games"></Games>
       <Games :type="'casual'" :games="casual_games"></Games>
     </div>
