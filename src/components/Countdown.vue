@@ -68,29 +68,30 @@ export default {
   display: flex;
   margin: auto;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .block {
   display: flex;
   flex-direction: column;
   margin: 20px;
-}
 
-.text {
-  color: $primary;
-  font-size: 25px;
-  font-weight: 200;
-  margin-top:10px;
-  margin-bottom: 10px;
-  text-align: center;
-}
+  .text {
+    color: $primary;
+    font-size: 25px;
+    font-weight: 200;
+    margin-top:10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-.digit {
-  color: white;
-  font-size: 75px;
-  width: 120px;
-  font-weight: 100;
-  margin: 10px;
-  text-align: center;
+  .digit {
+    color: white;
+    font-size: 75px;
+    width: 120px;
+    font-weight: 100;
+    margin: 10px;
+    text-align: center;
+  }
 }
 </style>
