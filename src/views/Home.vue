@@ -43,7 +43,7 @@ import Footer from '@/components/Footer';
       ],
       casual_games: [
         { id: 'gmod', name: 'Garry\'s Mod' },
-        { id: 'r6s', name: 'Rainbow Six: Siege' },
+        { id: 'wa', name: 'Worms: Armageddon' },
         { id: 'mc', name: 'Minecraft' }
       ]
     };

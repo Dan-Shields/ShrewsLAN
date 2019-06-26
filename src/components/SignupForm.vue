@@ -34,12 +34,12 @@
       type="checkbox"
       name="games"
       style="width: 18px; margin: 0 0"
-      value="CS:GO">CS:GO</label>
+      value="gmod">Garry's Mod</label>
     <label class="checkbox-text"><input
       type="checkbox"
       name="games"
       style="width: 18px; margin: 0 0"
-      value="CS:GO">CS:GO</label>
+      value="worms">Worms: Armageddon</label>
 
     <p class="question">By checking the box below I confirm that I will pay the £5 entry fee in cash/via PayPal on the door <input type="checkbox" style="width: 18px; margin: 0 0"></p>
   </div>
