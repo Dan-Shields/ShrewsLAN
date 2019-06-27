@@ -12,7 +12,7 @@
       <Info></Info>
 
       <h1 class="cta">Reserve your spot now!</h1>
-    <Signup></Signup>
+      <Signup :games="comp_games.concat(casual_games)"></Signup>
     </div>
 
     <Footer></Footer>

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="modal-body">
-                  <SignupForm ></SignupForm>
+                  <SignupForm :games="games" v-model="formData"></SignupForm>
                 </div>
 
                 <div class="modal-footer">
@@ -92,6 +92,10 @@ import GridLoader from 'vue-spinner/src/GridLoader.vue';
 
 export default {
   name: 'Signup',
+
+  props: [
+    'games'
+  ],
 
   data () {
     return {
@@ -215,7 +219,7 @@ export default {
   display: flex;
   align-items: center;
 
-  height: 532px;
+  height: 605px;
 
   &.success {
     height: 383px;

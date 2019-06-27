@@ -15,34 +15,24 @@
       <option value="both">Both Days</option>
     </select>
 
+    <!--GAMES-->
     <p class="question">What games are you interested in playing?</p>
-    <label class="checkbox-text"><input
-      type="checkbox"
-      name="games"
-      style="width: 18px; margin: 0 0"
-      value="csgo">CS:GO</label>
-    <label class="checkbox-text"><input
-      type="checkbox"
-      name="games"
-      style="width: 18px; margin: 0 0"
-      value="tf2">Team Fortress 2</label>
-    <label class="checkbox-text"><input
-      type="checkbox"
-      name="games"
-      style="width: 18px; margin: 0 0"
-      value="aos">Ace of Spades</label>
-    <label class="checkbox-text"><input
-      type="checkbox"
-      name="games"
-      style="width: 18px; margin: 0 0"
-      value="gmod">Garry's Mod</label>
-    <label class="checkbox-text"><input
-      type="checkbox"
-      name="games"
-      style="width: 18px; margin: 0 0"
-      value="worms">Worms: Armageddon</label>
+    <div v-for="game in games" :key="game.id">
+      <label class="checkbox-text"><input
+        type="checkbox"
+        v-model="formData.games[game.id]"
+        style="width: 18px; margin: 0 0"
+        :value="game.id">{{game.name}}</label>
+    </div>
 
-    <p class="question">By checking the box below I confirm that I will pay the £5 entry fee in cash/via PayPal on the door <input type="checkbox" style="width: 18px; margin: 0 0"></p>
+    <!--OTHER GAMES-->
+    <input v-model="formData.games.other" placeholder="Other...">
+
+    <!--CONFIRMATION BOX-->
+    <p class="question">
+      By checking the box below I confirm that I will pay the £5 entry fee in cash/via PayPal on the door.
+      <input v-model="formData.confirm" type="checkbox"  style="width: 18px; margin: 0 0">
+    </p>
   </div>
 </template>
 
@@ -50,12 +40,24 @@
 export default {
   name: 'SignupForm',
 
+  props: [
+    'games'
+  ],
+
   data () {
     return {
       formData: {
         name: '',
         email: '',
         days: '',
+        games: {
+          csgo: false,
+          tf2: false,
+          aos: false,
+          gmod: false,
+          worms: false,
+          other: ''
+        },
         confirm: false
       }
     };
@@ -80,6 +82,7 @@ input,select{
   font-weight: 200;
   display: block;
   user-select: none;
+  margin-bottom: 5px;
 }
 
 .required {
