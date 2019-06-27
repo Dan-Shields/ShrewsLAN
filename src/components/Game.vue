@@ -11,18 +11,11 @@ export default {
 
   props: [
     'game'
-  ],
-
-  data () {
-    return {
-    };
-  }
+  ]
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/global.scss';
-
 $height: 200px;
 $width: 250px;
 
@@ -68,6 +61,7 @@ $width: 250px;
   }
 }
 
+// Force background image to always be visible on mobile
 @media only screen and (max-width: 600px) {
   .logo {
     transform: translate(-50%,-50%) scale(1.3);

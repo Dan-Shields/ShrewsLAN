@@ -67,8 +67,6 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/global.scss';
-
 .home {
   max-width: 1200px;
   margin: auto;

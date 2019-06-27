@@ -28,8 +28,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/global.scss';
-
 .info-wrapper {
   display: flex;
   max-width: 100%;

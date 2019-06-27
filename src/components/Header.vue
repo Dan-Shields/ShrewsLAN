@@ -50,8 +50,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/global.scss';
-
 .header {
   max-width: 100%;
 }

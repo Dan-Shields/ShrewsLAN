@@ -5,5 +5,14 @@ module.exports = {
         target: process.env.VUE_APP_API_URL || 'http://lanbackend.localhost'
       }
     }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+          @import "@/assets/global.scss";
+        `
+      }
+    }
   }
 };

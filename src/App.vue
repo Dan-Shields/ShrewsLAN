@@ -5,8 +5,6 @@
 </template>
 
 <style lang="scss">
-@import './assets/scss/global.scss';
-
 $background: #02111b;
 $scrollbar-width: 20px;
 

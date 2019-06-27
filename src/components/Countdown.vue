@@ -62,8 +62,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/global.scss';
-
 .countdown {
   display: flex;
   margin: auto;

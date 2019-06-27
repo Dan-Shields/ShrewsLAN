@@ -62,11 +62,10 @@ export default {
       }
     };
   },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/global.scss';
-
 input,select{
   width: 100%;
   font-family: sans-serif;
