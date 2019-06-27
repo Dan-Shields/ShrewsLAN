@@ -1,17 +1,18 @@
 <template>
   <div>
-    <p class="question">Name</p>
-    <input name="name" placeholder="Barry Chuckle">
+    <p class="question">Name <span class="required"> *</span></p>
+    <input v-model="formData.name" placeholder="Barry Chuckle" >
 
-    <p class="question">Email</p>
-    <input name="email" type="email" placeholder="barry@chuckle.co.uk">
+    <p class="question">Email <span class="required"> *</span></p>
+    <input v-model="formData.email" type="email" placeholder="barry@chuckle.co.uk" >
 
-    <p class="question">Which day(s) will you be attending?</p>
-    <select style="margin-bottom: 2px">
+    <!--DAYS-->
+    <p class="question">Which day(s) will you be attending? <span class="required"> *</span></p>
+    <select v-model="formData.days" style="margin-bottom: 2px" >
       <option value="">Select an option...</option>
-      <option value="Sat">Saturday 20th July</option>
-      <option value="Sun">Sunday 21st July</option>
-      <option value="Both">Both Days</option>
+      <option value="20">Saturday 20th July</option>
+      <option value="21">Sunday 21st July</option>
+      <option value="both">Both Days</option>
     </select>
 
     <p class="question">What games are you interested in playing?</p>
@@ -47,8 +48,18 @@
 
 <script>
 export default {
-  name: 'SignupForm'
-};
+  name: 'SignupForm',
+
+  data () {
+    return {
+      formData: {
+        name: '',
+        email: '',
+        days: '',
+        confirm: false
+      }
+    };
+  },
 </script>
 
 <style lang="scss" scoped>
@@ -56,12 +67,12 @@ export default {
 
 input,select{
   width: 100%;
+  font-family: sans-serif;
 }
 
 .question {
   font-weight: 200;
   margin: 10px 0;
-  font-style: italic;
 }
 
 .checkbox-text{
@@ -69,5 +80,12 @@ input,select{
   font-weight: 200;
   display: block;
   user-select: none;
+}
+
+.required {
+  color: red;
+  font-style: normal;
+  margin-left: 5px;
+  font-size: 20px;
 }
 </style>
