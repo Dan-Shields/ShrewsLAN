@@ -2,7 +2,7 @@
   <div class="home">
     <Header :date="startDate"></Header>
 
-    <h2 class="seats-left">Seats left: 25/40</h2>
+    <SeatsLeft></SeatsLeft>
     <Signup></Signup>
 
     <Games :type="'comp'" :games="comp_games"></Games>
@@ -21,6 +21,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 // @ts-ignore
 import Header from '@/components/Header';
+// @ts-ignore
+import SeatsLeft from '@/components/SeatsLeft';
 // @ts-ignore
 import Games from '@/components/Games';
 // @ts-ignore
@@ -51,6 +53,7 @@ import Footer from '@/components/Footer';
 
   components: {
     Header,
+    SeatsLeft,
     Signup,
     Games,
     Info,
