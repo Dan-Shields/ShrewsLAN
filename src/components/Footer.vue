@@ -14,11 +14,13 @@
 
 <script>
 export default {
-    
-}
+
+};
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/global.scss';
+
 .footer {
   display: flex;
   justify-content: center;
@@ -34,7 +36,7 @@ export default {
 
   .divider-container {
     height: 40px;
-    margin: 0 auto; 
+    margin: 0 auto;
 
     .divider {
       margin-top: 13px;
@@ -50,4 +52,3 @@ export default {
   }
 }
 </style>
-

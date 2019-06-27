@@ -3,15 +3,17 @@
     <Header :date="startDate"></Header>
 
     <SeatsLeft></SeatsLeft>
+    <Signup :games="comp_games.concat(casual_games)"></Signup>
+
+    <div class="content">
+      <Games :type="'comp'" :games="comp_games"></Games>
+      <Games :type="'casual'" :games="casual_games"></Games>
+
+      <Info></Info>
+
+      <h1 class="cta">Reserve your spot now!</h1>
     <Signup></Signup>
-
-    <Games :type="'comp'" :games="comp_games"></Games>
-    <Games :type="'casual'" :games="casual_games"></Games>
-
-    <Info></Info>
-
-    <h1 class="cta">Reserve your spot now!</h1>
-    <Signup></Signup>
+    </div>
 
     <Footer></Footer>
   </div>
@@ -68,7 +70,12 @@ export default class Home extends Vue {}
 @import '../assets/scss/global.scss';
 
 .home {
-  max-width: 1000px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.content {
+  max-width: 850px;
   margin: auto;
 }
 

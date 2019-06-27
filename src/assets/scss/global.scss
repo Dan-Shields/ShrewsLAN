@@ -13,6 +13,6 @@ $success: #39F06A;
 a {
 	color: $primary;
 	&:visited {
-		color: $secondary;
+		color: darken($primary, 25%);
 	}
 }

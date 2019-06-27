@@ -6,7 +6,6 @@
       <Game v-for="game in games" :key="game.id" :game="game"></Game>
     </div>
   </div>
-  
 </template>
 
 <script>

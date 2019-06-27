@@ -78,8 +78,6 @@ $width: 250px;
         clip-path: inset(0);
       }
   }
-} 
-
-
+}
 
 </style>

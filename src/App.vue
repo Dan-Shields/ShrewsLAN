@@ -14,7 +14,7 @@ html {
   min-height: 100vh;
   width: 100%;
   max-width: 100%;
-  
+
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

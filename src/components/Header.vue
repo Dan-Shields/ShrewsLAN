@@ -64,7 +64,7 @@ export default {
   justify-content: center;
   margin: auto;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   padding-top: 50px;
 
   .logo  {
@@ -75,7 +75,6 @@ export default {
 
     img {
       width: 100%;
-      
     }
   }
 
@@ -94,7 +93,7 @@ export default {
   justify-content: center;
   align-items: baseline;
   margin-top: 15px;
-  
+
   .subtitle {
     font-size: 20px;
     font-weight: 200;
