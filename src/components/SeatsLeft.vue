@@ -15,7 +15,7 @@ export default {
     let totalSeats = 40;
 
     axios
-      .get('/api/countsignups')
+      .get(process.env.VUE_APP_API_HOST + '/api/countsignups')
       .then(response => {
         if (response.status === 200 && response.data >= 15) {
           this.seatsLeft = totalSeats - response.data;
