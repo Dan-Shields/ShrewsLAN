@@ -1,8 +1,9 @@
 <template>
   <div class="signup">
-    <div class="button" @click="showModal = true">
+    <!--SIGNUP BUTTON-->
+    <CustomButton @click="showModal = true">
       SIGNUP
-    </div>
+    </CustomButton>
 
     <transition name="modal" :leave-to-class="leaveTo" @after-leave="reset()">
       <div v-if="showModal" class="modal-mask">
@@ -73,9 +74,9 @@
                 </div>
 
                 <div class="modal-footer">
-                  <div class="modal-submit-button success" @click="close_success()">
+                  <CustomButton class="submit success" @click="finish()">
                     CLOSE
-                  </div>
+                  </CustomButton>
                 </div>
               </div>
             </transition>
@@ -89,6 +90,7 @@
 <script>
 import SignupForm from '@/components/SignupForm';
 import GridLoader from 'vue-spinner/src/GridLoader.vue';
+import CustomButton from '@/components/CustomButton.vue';
 
 export default {
   name: 'Signup',
@@ -149,40 +151,6 @@ export default {
 <style lang="scss" scoped>
 .signup {
   margin-bottom: 50px;
-}
-
-.button {  
-  $width: 150px;
-  $height: 70px;
-
-  border-color: $primary;
-  border-radius: 5px;
-  border-width: 5px;
-  border-style: solid;
-
-  background-color: rgba(0,0,0,0);
-
-  margin: auto;
-
-  color: white;
-  font-size: 30px;
-  font-weight: 700;
-  user-select: none;
-  cursor: pointer;
-
-  line-height: 70px;
-  vertical-align: middle;
-
-  width: $width;
-  height: $height;
-
-  transition: 0.2s;
-
-  &:hover {
-    color: black;
-    width: $width + 15px;
-    background-color: $primary;
-  }
 }
 
 .modal-mask {
@@ -248,74 +216,6 @@ export default {
   }
 }
 
-/** BUTTONS
-**********/
-.modal-submit-button {
-  $width: 120px;
-  $height: 50px;
-
-  border-color: $primary;
-  border-radius: 5px;
-  border-width: 5px;
-  border-style: solid;
-
-  background-color: rgba(0,0,0,0);
-
-  margin: auto;
-
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-  user-select: none;
-  cursor: pointer;
-
-  line-height: $height;
-  vertical-align: middle;
-
-  width: $width;
-  height: $height;
-
-  transition: 0.2s;
-
-  &:hover {
-    color: black;
-    width: $width + 15px;
-    background-color: $primary;
-  }
-
-  &.success {
-    border-color: $success;
-
-    &:hover {
-      background-color: $success;
-    }
-  }
-}
-
-.modal-close-button {
-  float: right;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  vertical-align: middle;
-  margin-right: -15px;
-
-  .fas {
-    float: none;
-    color: #fff;
-
-    width: 100%;
-    line-height: 40px;
-    vertical-align: middle;
-
-    transition: 0.2s;
-
-    &:hover {
-      color: $secondary;
-    }
-  }
 }
 
 /** SUCCESS
