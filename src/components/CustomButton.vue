@@ -77,21 +77,6 @@ export default {
       width: $width !important;
     }
   }
-
-  &.shake {
-    animation: shake 0.6s 1 linear;
-  }
-}
-
-$invalidBorder: darken(red, 12%);
-
-@keyframes shake {
-  0% { transform: translate(20px); border-color: $invalidBorder }
-  20% { transform: translate(-20px); border-color: $invalidBorder }
-  40% { transform: translate(10px); border-color: $invalidBorder }
-  60% { transform: translate(-10px); border-color: $invalidBorder }
-  80% { transform: translate(5px); border-color: $invalidBorder }
-  100% { transform: translate(0px); border-color: $invalidBorder }
 }
 
 </style>

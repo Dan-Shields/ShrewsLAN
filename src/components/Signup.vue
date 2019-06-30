@@ -5,54 +5,35 @@
       SIGNUP
     </CustomButton>
 
+    <!--MODAL-->
     <transition name="modal" :leave-to-class="leaveTo" @after-leave="reset()">
       <div v-if="showModal" class="modal-mask">
         <div class="modal-wrapper">
-          <div class="modal-container" :class="{success: success}">
-            <transition name="generic" @after-leave="success = true">
-              <div class="form" v-if="formOpen">
-                <transition name="generic">
-                  <div v-if="submitButtonShow" class="modal-close-button" @click="close_cancel()">
-                    <i class="fas fa-times"></i>
-                  </div>
-                </transition>
+          <div class="modal-container" :class="{success: showSuccess}">
 
-                <div class="modal-header">
-                  <h3>Signup Sheet</h3>
-                </div>
-
-                <div class="modal-body">
-                  <SignupForm :games="games" v-model="formData"></SignupForm>
-                </div>
-
-                <div class="modal-footer">
-                  <transition name="generic-quick" @after-leave="loaderShow = true">
-                    <div v-if="submitButtonShow" class="modal-submit-button" @click="submit()">
-                      SUBMIT
-                    </div>
-                  </transition>
-                  <transition name="generic-quick">
-                    <grid-loader v-if="loaderShow" class="loader" color="#39c0f0"></grid-loader>
-                  </transition>
-                </div>
+            <!--FORM-->
+            <transition name="generic" @after-leave="showSuccess = true">
+              <div v-if="showForm" class="form">
+                <SignupForm :games="games" @success="success()" @cancel="close()"></SignupForm>
               </div>
             </transition>
-            <transition name="generic" @after-enter="drawCheckmark = true">
-              <div v-if="success" class="show-success">
 
-                <div class="modal-header">
+            <!--SUCCESS SCREEN-->
+            <transition name="generic" @after-enter="drawCheckmark = true">
+              <div v-if="showSuccess" class="success-screen">
+                <div class="header">
                   <h3>SUCCESS</h3>
                 </div>
 
-                <div class="modal-body">
+                <div class="body">
                   <div class="checkmark" :class="{draw: drawCheckmark}">
                     <SuccessIcon></SuccessIcon>
                   </div>
                   <p>You will shortly receive an email confirming your registration and providing details on how to attend the event. See you there!</p>
                 </div>
 
-                <div class="modal-footer">
-                  <CustomButton class="submit success" @click="finish()">
+                <div class="footer">
+                  <CustomButton class="submit success" @click="close()">
                     CLOSE
                   </CustomButton>
                 </div>
@@ -80,40 +61,27 @@ export default {
   data () {
     return {
       showModal: false,
+      showForm: true,
+      showSuccess: false,
       leaveTo: 'close-leave-to',
-      formOpen: true,
-      success: false,
-      submitButtonShow: true,
-      loaderShow: false,
       drawCheckmark: false
     };
   },
 
   methods: {
-    close_cancel () {
+    close () {
       this.showModal = false;
     },
 
-    close_success () {
-      this.showModal = false;
-    },
+    success () {
+      this.showForm = false;
 
-    submit () {
-      this.submitButtonShow = false;
-
-      // This needs to be on a small delay to allow for the css class change to propagate to the transition
-      window.setTimeout(() => {
-        this.formOpen = false;
-
-        this.leaveTo = 'success-leave-to';
-      }, 1500);
+      this.leaveTo = 'success-leave-to';
     },
 
     reset () {
-      this.loaderShow = false;
-      this.submitButtonShow = true;
-      this.formOpen = true;
-      this.success = false;
+      this.showForm = true;
+      this.showSuccess = false;
       this.drawCheckmark = false;
       this.leaveTo = 'close-leave-to';
     }
@@ -121,7 +89,8 @@ export default {
 
   components: {
     SignupForm,
-    GridLoader
+    SuccessIcon,
+    CustomButton
   }
 };
 </script>
@@ -131,6 +100,8 @@ export default {
   margin-bottom: 50px;
 }
 
+/** MODAL
+********/
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -164,61 +135,6 @@ export default {
   align-items: center;
 
   height: 605px;
-
-  &.success {
-    height: 383px;
-  }
-
-  .show-success {
-    text-align: center;
-  }
-}
-
-.modal-header h3 {
-  font-weight: 200;
-  font-size: 30px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: $primary;
-}
-
-.modal-body {
-  margin: 20px 0;
-}
-
-.modal-footer {
-  height: 60px;
-
-  .loader {
-    margin: auto;
-  }
-}
-
-}
-
-/** SUCCESS
-**********/
-.checkmark {
-  width: 50%;
-  margin: auto;
-}
-
-.circ {
-  opacity: 0;
-  stroke-dasharray: 130;
-  stroke-dashoffset: 130;
-  transition: all 1s;
-}
-
-.tick{
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
-  transition: stroke-dashoffset 1s 0.2s ease-out;
-}
-
-.draw svg .path {
-  opacity: 1;
-  stroke-dashoffset: 0;
 }
 
 /** MODAL TRANSITION
@@ -264,4 +180,52 @@ export default {
 .generic-quick-leave-active, .generic-quick-enter-active {
   transition: opacity .3s;
 }
+
+/** SUCCESS SCREEN
+*****************/
+.modal-container.success {
+  height: 383px;
+
+  .success-screen {
+    text-align: center;
+
+    .header h3 {
+      font-weight: 200;
+      font-size: 30px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: $primary;
+    }
+
+    .body .checkmark {
+      width: 50%;
+      margin: auto;
+
+      .circ {
+        opacity: 0;
+        stroke-dasharray: 130;
+        stroke-dashoffset: 130;
+        transition: all 1s;
+      }
+
+      .tick {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 50;
+        transition: stroke-dashoffset 1s 0.2s ease-out;
+      }
+
+      &.draw svg {
+        .path {
+          opacity: 1;
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+
+    .footer {
+      height: 60px;
+    }
+  }
+}
+
 </style>
