@@ -14,7 +14,7 @@
             <!--FORM-->
             <transition name="generic" @after-leave="showSuccess = true">
               <div v-if="showForm" class="form">
-                <SignupForm :games="games" @success="success()" @cancel="close()"></SignupForm>
+                <SignupForm :games="games" @success="success" @cancel="close()"></SignupForm>
               </div>
             </transition>
 
@@ -29,7 +29,8 @@
                   <div class="checkmark" :class="{draw: drawCheckmark}">
                     <SuccessIcon></SuccessIcon>
                   </div>
-                  <p>You will shortly receive an email confirming your registration and providing details on how to attend the event. See you there!</p>
+                  <p v-if="name">Thanks, {{name}}!</p>
+                  <p>You'll receive an email closer to the event confirming your registration and providing details on how to attend the event. Feel free to invite your friends in the meantime. See you there!</p>
                 </div>
 
                 <div class="footer">
@@ -64,7 +65,8 @@ export default {
       showForm: true,
       showSuccess: false,
       leaveTo: 'close-leave-to',
-      drawCheckmark: false
+      drawCheckmark: false,
+      name: false
     };
   },
 
@@ -73,7 +75,11 @@ export default {
       this.showModal = false;
     },
 
-    success () {
+    success (data) {
+      if (data && data.name) {
+        this.name = data.name;
+      }
+
       // Hide form (success screen will automatically show after it has gone)
       this.showForm = false;
 
@@ -186,7 +192,7 @@ export default {
 /** SUCCESS SCREEN
 *****************/
 .modal-container.success {
-  height: 383px;
+  height: 420px;
 
   .success-screen {
     text-align: center;

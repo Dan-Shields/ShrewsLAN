@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import GridLoader from 'vue-spinner/src/GridLoader.vue';
 import CustomButton from '@/components/CustomButton.vue';
 
@@ -92,13 +93,13 @@ export default {
           worms: false,
           other: ''
         },
-        confirm: false
+        confirm: ''
       },
       formValid: {
         name: false,
         email: false,
         days: false,
-        other: false,
+        other: true,
         confirm: false
       },
       submitButtonShow: true,
@@ -109,25 +110,53 @@ export default {
   methods: {
     checkForm () {
       if (!this.valid) {
+        // Fake form submission to show error popups
         this.$refs.fakesubmit.click();
         return;
       }
 
+      // Data is valid, but we need to mutate it to the correct form //
+      // /////////////////////////////////////////////////////////// //
+
+      // Hide submit button and show loader
       this.submitButtonShow = false;
 
-      this.submit().then(result => {
-        if (!result) {
-          this.loaderShow = false;
-        } else {
-          this.$emit('success');
-        }
-      });
-    },
+      // Create copy of form data
+      const data = JSON.parse(JSON.stringify(this.formData));
 
-    submit () {
-      return new Promise(resolve => {
-        window.setTimeout(() => resolve(true), 2000);
-      });
+      // Move 'other' game category out of games
+      data.other = data.games.other; delete data.games.other;
+
+      // Remove unnecessary confirm field
+      delete data.confirm;
+
+      // Process games into array of strings
+      const games = [];
+      for (const game of Object.keys(data.games)) {
+        if (data.games[game]) {
+          games.push(game);
+        }
+      }
+      data.games = JSON.stringify(games);
+
+      // Data is now in the form we need //
+      // /////////////////////////////// //
+
+      const api = process.env.VUE_APP_API_HOST || '';
+
+      axios
+        .post(api + '/api/register', data).then(response => {
+          if (response.status === 200 || response.status === 201) {
+            // Success!
+            this.$emit('success', response.data);
+          } else if (response.status === 422) {
+            // Problem with payload
+            this.loaderShow = false;
+          } else {
+            // Other error
+            this.loaderShow = false;
+          }
+        });
     }
   },
 
@@ -147,7 +176,7 @@ export default {
 
       this.formValid.days = days.validity.valid;
     },
-    'formData.other' (newVal) {
+    'formData.games.other' (newVal) {
       const other = this.$refs.other;
 
       this.formValid.other = other.validity.valid;
