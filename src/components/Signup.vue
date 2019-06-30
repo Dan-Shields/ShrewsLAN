@@ -74,8 +74,10 @@ export default {
     },
 
     success () {
+      // Hide form (success screen will automatically show after it has gone)
       this.showForm = false;
 
+      // Setup leave animation for when user choses to close success screen
       this.leaveTo = 'success-leave-to';
     },
 

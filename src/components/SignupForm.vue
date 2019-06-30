@@ -94,11 +94,76 @@ export default {
         },
         confirm: false
       },
+      formValid: {
+        name: false,
+        email: false,
+        days: false,
+        other: false,
+        confirm: false
+      },
       submitButtonShow: true,
       loaderShow: false
-    }
     };
   },
+
+  methods: {
+    checkForm () {
+      if (!this.valid) {
+        this.$refs.fakesubmit.click();
+        return;
+      }
+
+      this.submitButtonShow = false;
+
+      this.submit().then(result => {
+        if (!result) {
+          this.loaderShow = false;
+        } else {
+          this.$emit('success');
+        }
+      });
+    },
+
+    submit () {
+      return new Promise(resolve => {
+        window.setTimeout(() => resolve(true), 2000);
+      });
+    }
+  },
+
+  watch: {
+    'formData.name' (newVal) {
+      const name = this.$refs.name;
+
+      this.formValid.name = name.validity.valid;
+    },
+    'formData.email' (newVal) {
+      const email = this.$refs.email;
+
+      this.formValid.email = email.validity.valid;
+    },
+    'formData.days' (newVal) {
+      const days = this.$refs.days;
+
+      this.formValid.days = days.validity.valid;
+    },
+    'formData.other' (newVal) {
+      const other = this.$refs.other;
+
+      this.formValid.other = other.validity.valid;
+    },
+    'formData.confirm' (newVal) {
+      const confirm = this.$refs.confirm;
+
+      this.formValid.confirm = confirm.validity.valid;
+    }
+  },
+
+  computed: {
+    valid () {
+      return this.formValid.name && this.formValid.email && this.formValid.days && this.formValid.other && this.formValid.confirm;
+    }
+  }
 };
 </script>
 
