@@ -12,10 +12,11 @@ export default {
     };
   },
   mounted () {
-    let totalSeats = 40;
+    const totalSeats = 40;
+    const api = process.env.VUE_APP_API_HOST || '';
 
     axios
-      .get(process.env.VUE_APP_API_HOST + '/api/countsignups')
+      .get(api + '/api/countsignups')
       .then(response => {
         if (response.status === 200 && response.data >= 15) {
           this.seatsLeft = totalSeats - response.data;
