@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="text left">
-      <p>Website by <a href="https://twitter.com/DanShieldsUK">Daniel Shields</a></p>
+      <p>Website by <a href="https://twitter.com/DanShieldsUK" target="_blank">Daniel Shields</a></p>
     </div>
     <div class="divider-container">
       <div class="divider"></div>
