@@ -14,7 +14,7 @@
       </div>
       <ul>
         <li><h4>How much does the event cost?</h4><p>£5 for both days! Same price if you just come for one.</p></li>
-        <li><h4>What time does the event start</h4><p>Setup from 10am, organised games normally start around 12pm.</p></li>
+        <li><h4>What time does the event start?</h4><p>Setup from 10am, organised games normally start around 12pm.</p></li>
         <li><h4>What time does the event end?</h4><p>10pm both days. The venue will be secure overnight so you can leave your stuff or take it and bring it back.</p></li>
         <li><h4>What can I do for food?</h4><p>Nearby there's a Coop, Morrisons and chippy. We also normally do a pizza order for lunch one of the days.</p></li>
       </ul>
@@ -38,7 +38,7 @@ export default {
   .info {
     color: white;
     margin: 18px;
-    width: 45%;
+    width: 380px;
 
     &.faq {
       ul {
