@@ -59,6 +59,26 @@ export default {
 
   transition: 0.2s;
 
+  &.contact {
+    $width: 320px;
+    $height: 35px;
+
+    border-color: $secondary;
+
+    font-size: 20px;
+    line-height: $height;
+
+    width: $width;
+    max-width: 100%;
+    height: auto;
+
+    &:hover {
+      width: $width + 15px;
+      max-width: 100%;
+      background-color: $secondary;
+    }
+  }
+
   &.success {
     border-color: $success;
 

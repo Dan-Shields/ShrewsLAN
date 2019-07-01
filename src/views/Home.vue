@@ -13,28 +13,25 @@
 
       <h1 class="cta">Reserve your spot now!</h1>
       <Signup :games="comp_games.concat(casual_games)"></Signup>
+
+      <CustomButton class="contact" @click="contact"><span style="font-weight: 500">Contact:</span> info@shrewslan.uk</CustomButton>
+
     </div>
 
     <Footer></Footer>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-// @ts-ignore
+<script>
 import Header from '@/components/Header';
-// @ts-ignore
 import SeatsLeft from '@/components/SeatsLeft';
-// @ts-ignore
 import Games from '@/components/Games';
-// @ts-ignore
 import Info from '@/components/Info';
-// @ts-ignore
 import Signup from '@/components/Signup';
-// @ts-ignore
+import CustomButton from '@/components/CustomButton.vue';
 import Footer from '@/components/Footer';
 
-@Component({
+export default {
   name: 'Home',
 
   data () {
@@ -53,17 +50,22 @@ import Footer from '@/components/Footer';
     };
   },
 
+  methods: {
+    contact () {
+      window.open('mailto:info@shrewslan.uk', '_blank');
+    }
+  },
+
   components: {
     Header,
     SeatsLeft,
     Signup,
     Games,
     Info,
+    CustomButton,
     Footer
   }
-})
-
-export default class Home extends Vue {}
+};
 </script>
 
 <style lang="scss" scoped>

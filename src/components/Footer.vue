@@ -22,9 +22,10 @@ export default {
 .footer {
   display: flex;
   justify-content: center;
+  width: 100%;
+  margin: auto;
 
   .text {
-    flex-basis: 49%;
     text-align: left;
 
     &.left p {
@@ -34,11 +35,11 @@ export default {
 
   .divider-container {
     height: 40px;
-    margin: 0 auto;
+    margin: 0 12px;
 
     .divider {
       margin-top: 13px;
-      height: 30px;
+      height: 22px;
       border-left: 1px solid white;
     }
   }
