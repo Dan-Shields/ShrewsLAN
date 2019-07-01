@@ -113,6 +113,7 @@ export default {
       this.showSuccess = false;
       this.drawCheckmark = false;
       this.leaveTo = 'close-leave-to';
+      this.name = false;
     }
   },
 
