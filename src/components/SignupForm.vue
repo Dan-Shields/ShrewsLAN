@@ -13,14 +13,31 @@
     <div class="body">
       <form>
         <p class="question">Name <span class="required"> *</span></p>
-        <input v-model="formData.name" name="name" ref="name" placeholder="Barry Chuckle" required maxlength="255">
+        <input
+          v-model="formData.name"
+          name="name"
+          ref="name"
+          placeholder="Barry Chuckle"
+          required
+          maxlength="255">
 
         <p class="question">Email <span class="required"> *</span></p>
-        <input v-model="formData.email" name="email" ref="email" type="email" placeholder="barry@chuckle.co.uk" required maxlength="255">
+        <input
+          v-model="formData.email"
+          name="email"
+          ref="email"
+          type="email"
+          placeholder="barry@chuckle.co.uk"
+          required
+          maxlength="255">
 
         <!--DAYS-->
         <p class="question">Which day(s) will you be attending? <span class="required"> *</span></p>
-        <select v-model="formData.days" ref="days" style="margin-bottom: 2px" required>
+        <select
+          v-model="formData.days"
+          ref="days"
+          style="margin-bottom: 2px"
+          required>
           <option value="">Select an option...</option>
           <option value="20">Saturday 20th July</option>
           <option value="21">Sunday 21st July</option>
@@ -38,12 +55,21 @@
         </div>
 
         <!--OTHER GAMES-->
-        <input v-model="formData.games.other" ref="other" placeholder="Other..." maxlength="255">
+        <input
+          v-model="formData.games.other"
+          ref="other"
+          placeholder="Other..."
+          maxlength="255">
 
         <!--CONFIRMATION BOX-->
         <p class="question">
           By checking the box below I confirm that I will pay the £5 entry fee in cash/via PayPal on the door.
-          <input v-model="formData.confirm" ref="confirm" type="checkbox" style="width: 18px; margin: 0 0" required>
+          <input
+            v-model="formData.confirm"
+            ref="confirm"
+            type="checkbox"
+            style="width: 18px; margin: 0 0"
+            required>
         </p>
 
         <input type="submit" style="display: none;" ref="fakesubmit">
@@ -51,7 +77,11 @@
     </div>
     <div class="footer">
       <transition name="generic-quick" @after-leave="loaderShow = true">
-        <CustomButton v-if="submitButtonShow" class="submit" :class="{notvalid: !valid}" @click="checkForm()">
+        <CustomButton
+          v-if="submitButtonShow"
+          class="submit"
+          :class="{notvalid: !valid}"
+          @click="checkForm()">
           SUBMIT
         </CustomButton>
       </transition>
