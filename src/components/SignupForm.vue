@@ -88,6 +88,7 @@
       <transition name="generic-quick" @after-leave="submitButtonShow = true">
         <grid-loader v-if="loaderShow" class="loader" color="#39c0f0"></grid-loader>
       </transition>
+      <small class="error" v-if="error">{{error}}</small>
     </div>
   </div>
 </template>
@@ -133,7 +134,8 @@ export default {
         confirm: false
       },
       submitButtonShow: true,
-      loaderShow: false
+      loaderShow: false,
+      error: false
     };
   },
 
@@ -144,6 +146,8 @@ export default {
         this.$refs.fakesubmit.click();
         return;
       }
+
+      this.error = false;
 
       // Hide submit button and show loader
       this.submitButtonShow = false;
@@ -176,17 +180,32 @@ export default {
 
       window.setTimeout(() => {
         axios
-          .post(api + '/api/register', data).then(response => {
+          .post(api + '/api/register', data, {
+            validateStatus: status => status >= 200 && status < 500
+          })
+          .then(response => {
+            console.log(response);
             if (response.status === 200 || response.status === 201) {
               // Success!
               this.$emit('success', response.data);
             } else if (response.status === 422) {
               // Problem with payload
               this.loaderShow = false;
+
+              if (response.data && response.data.email && response.data.email.length > 0 && response.data.email[0] === 'The email has already been taken.') {
+                this.$refs.email.setCustomValidity('This email is already in use. Please use a different one, or contact us if you think this is an error.');
+                this.$refs.fakesubmit.click();
+              } else {
+                this.error = 'An unknown error occurred, please try again later.';
+              }
             } else {
               // Other error
               this.loaderShow = false;
+              this.error = 'An unknown error occurred, please try again later.';
             }
+          })
+          .catch(error => {
+            console.log(error);
           });
       }, 800);
     }
@@ -196,20 +215,28 @@ export default {
     'formData.name' (newVal) {
       const name = this.$refs.name;
 
+      name.setCustomValidity('');
+
       this.formValid.name = name.validity.valid;
     },
     'formData.email' (newVal) {
       const email = this.$refs.email;
+
+      email.setCustomValidity('');
 
       this.formValid.email = email.validity.valid;
     },
     'formData.days' (newVal) {
       const days = this.$refs.days;
 
+      days.setCustomValidity('');
+
       this.formValid.days = days.validity.valid;
     },
     'formData.games.other' (newVal) {
       const other = this.$refs.other;
+
+      other.setCustomValidity('');
 
       this.formValid.other = other.validity.valid;
     },
@@ -268,8 +295,15 @@ export default {
   }
 }
 
-.loader {
-  margin: auto;
+.footer {
+  .loader {
+    margin: auto;
+  }
+
+  .error {
+    color: red;
+    margin-top: 100px;
+  }
 }
 
 /** BUTTONS
