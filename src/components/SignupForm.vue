@@ -13,10 +13,10 @@
     <div class="body">
       <form>
         <p class="question">Name <span class="required"> *</span></p>
-        <input v-model="formData.name" ref="name" placeholder="Barry Chuckle" required maxlength="255">
+        <input v-model="formData.name" name="name" ref="name" placeholder="Barry Chuckle" required maxlength="255">
 
         <p class="question">Email <span class="required"> *</span></p>
-        <input v-model="formData.email" ref="email" type="email" placeholder="barry@chuckle.co.uk" required maxlength="255">
+        <input v-model="formData.email" name="email" ref="email" type="email" placeholder="barry@chuckle.co.uk" required maxlength="255">
 
         <!--DAYS-->
         <p class="question">Which day(s) will you be attending? <span class="required"> *</span></p>
@@ -93,7 +93,7 @@ export default {
           worms: false,
           other: ''
         },
-        confirm: ''
+        confirm: null
       },
       formValid: {
         name: false,
@@ -115,11 +115,11 @@ export default {
         return;
       }
 
-      // Data is valid, but we need to mutate it to the correct form //
-      // /////////////////////////////////////////////////////////// //
-
       // Hide submit button and show loader
       this.submitButtonShow = false;
+
+      // Data is valid, but we need to mutate it to the correct form //
+      // /////////////////////////////////////////////////////////// //
 
       // Create copy of form data
       const data = JSON.parse(JSON.stringify(this.formData));
@@ -144,19 +144,21 @@ export default {
 
       const api = process.env.VUE_APP_API_HOST || '';
 
-      axios
-        .post(api + '/api/register', data).then(response => {
-          if (response.status === 200 || response.status === 201) {
-            // Success!
-            this.$emit('success', response.data);
-          } else if (response.status === 422) {
-            // Problem with payload
-            this.loaderShow = false;
-          } else {
-            // Other error
-            this.loaderShow = false;
-          }
-        });
+      window.setTimeout(() => {
+        axios
+          .post(api + '/api/register', data).then(response => {
+            if (response.status === 200 || response.status === 201) {
+              // Success!
+              this.$emit('success', response.data);
+            } else if (response.status === 422) {
+              // Problem with payload
+              this.loaderShow = false;
+            } else {
+              // Other error
+              this.loaderShow = false;
+            }
+          });
+      }, 800);
     }
   },
 
