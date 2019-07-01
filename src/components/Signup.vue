@@ -225,27 +225,31 @@ export default {
       color: $primary;
     }
 
-    .body .checkmark {
-      width: 50%;
-      margin: auto;
+    .body {
+      height: 310px;
 
-      .circ {
-        opacity: 0;
-        stroke-dasharray: 130;
-        stroke-dashoffset: 130;
-        transition: all 1s;
-      }
+      .checkmark {
+        width: 50%;
+        margin: auto;
 
-      .tick {
-        stroke-dasharray: 50;
-        stroke-dashoffset: 50;
-        transition: stroke-dashoffset 1s 0.2s ease-out;
-      }
+        .circ {
+          opacity: 0;
+          stroke-dasharray: 130;
+          stroke-dashoffset: 130;
+          transition: all 1s;
+        }
 
-      &.draw svg {
-        .path {
-          opacity: 1;
-          stroke-dashoffset: 0;
+        .tick {
+          stroke-dasharray: 50;
+          stroke-dashoffset: 50;
+          transition: stroke-dashoffset 1s 0.2s ease-out;
+        }
+
+        &.draw svg {
+          .path {
+            opacity: 1;
+            stroke-dashoffset: 0;
+          }
         }
       }
     }
