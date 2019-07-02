@@ -2,7 +2,7 @@
   <div class="form">
     <transition name="generic">
       <div v-if="submitButtonShow" class="close-button" @click="$emit('cancel')">
-        <i class="fas fa-times"></i>
+        <font-awesome-icon class="fas" icon="times"></font-awesome-icon>
       </div>
     </transition>
 
@@ -317,20 +317,25 @@ export default {
   text-align: center;
   vertical-align: middle;
   margin-right: -15px;
+  position: relative;
 
   .fas {
     float: none;
     color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 
     width: 100%;
     line-height: 40px;
     vertical-align: middle;
 
     transition: 0.2s;
+  }
 
-    &:hover {
-      color: $secondary;
-    }
+  &:hover .fas {
+    color: $secondary;
   }
 }
 
