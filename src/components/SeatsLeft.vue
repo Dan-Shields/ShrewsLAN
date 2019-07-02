@@ -18,7 +18,7 @@ export default {
     axios
       .get(api + '/api/countsignups')
       .then(response => {
-        if (response.status === 200 && response.data >= 15) {
+        if (response.status === 200) {
           this.seatsLeft = totalSeats - response.data;
         } else {
           this.seatsLeft = 25;
