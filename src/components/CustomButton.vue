@@ -59,6 +59,19 @@ export default {
 
   transition: 0.2s;
 
+  max-width: 100%;
+
+  &.notvalid {
+    border-color: grey;
+    background-color: darken(grey, 15%);
+    color:  darken(grey, 30%);
+    cursor: default;
+
+    &:hover {
+      width: $width !important;
+    }
+  }
+
   &.contact {
     $width: 320px;
     $height: 35px;
@@ -69,7 +82,6 @@ export default {
     line-height: $height;
 
     width: $width;
-    max-width: 100%;
     height: auto;
 
     &:hover {
@@ -84,17 +96,6 @@ export default {
 
     &:hover {
       background-color: $success;
-    }
-  }
-
-  &.notvalid {
-    border-color: grey;
-    background-color: darken(grey, 15%);
-    color:  darken(grey, 30%);
-    cursor: default;
-
-    &:hover {
-      width: $width !important;
     }
   }
 }
