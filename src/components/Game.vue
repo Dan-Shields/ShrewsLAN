@@ -36,7 +36,7 @@ $width: 250px;
     height: $height;
     filter: grayscale(100%);
     filter: brightness(50%);
-    transition: .5s;
+    transition: filter .5s, clip-path .5s;
     border-radius: 10px;
   }
 
@@ -47,7 +47,7 @@ $width: 250px;
     width: 40%;
     transform: translate(-50%, -50%);
     z-index: 50;
-    transition: .8s;
+    transition: transform .8s;
 
     &:hover {
       transform: translate(-50%,-50%) scale(1.3);
