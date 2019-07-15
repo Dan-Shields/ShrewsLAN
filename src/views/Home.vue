@@ -13,10 +13,9 @@
 
       <h1 class="cta">Reserve your spot now!</h1>
       <Signup :games="comp_games.concat(casual_games)"></Signup>
-
-      <CustomButton class="contact" @click="contact"><span style="font-weight: 500">Contact:</span> info@shrewslan.uk</CustomButton>
-
     </div>
+
+    <Contact></Contact>
 
     <Footer></Footer>
   </div>
@@ -28,7 +27,7 @@ import SeatsLeft from '@/components/SeatsLeft';
 import Games from '@/components/Games';
 import Info from '@/components/Info';
 import Signup from '@/components/Signup';
-import CustomButton from '@/components/CustomButton.vue';
+import Contact from '@/components/Contact.vue';
 import Footer from '@/components/Footer';
 
 export default {
@@ -50,19 +49,13 @@ export default {
     };
   },
 
-  methods: {
-    contact () {
-      window.open('mailto:info@shrewslan.uk', '_blank');
-    }
-  },
-
   components: {
     Header,
     SeatsLeft,
     Signup,
     Games,
     Info,
-    CustomButton,
+    Contact,
     Footer
   }
 };

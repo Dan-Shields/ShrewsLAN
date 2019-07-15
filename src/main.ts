@@ -5,11 +5,12 @@ import App from './App.vue';
 import router from './router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.config.productionTip = false;
 
-library.add(faTimes);
+library.add(faTimes, faFacebook, faTwitter);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

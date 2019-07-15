@@ -72,7 +72,7 @@ export default {
     }
   }
 
-  &.contact {
+  &.email {
     $width: 320px;
     $height: 35px;
 
