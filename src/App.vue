@@ -5,7 +5,6 @@
 </template>
 
 <style lang="scss">
-$background: #02111b;
 $scrollbar-width: 20px;
 
 html {

@@ -6,9 +6,17 @@ $primary: #39c0f0;
 $secondary: #536CB3;
 $success: #39F06A;
 
+$background: #02111b;
+
 a {
 	color: $primary;
+
+	transition: color .2s;
+
 	&:visited {
-		color: darken($primary, 25%);
+		color: $primary;
+	}
+	&:hover {
+		color: $secondary;
 	}
 }
